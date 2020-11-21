@@ -1,0 +1,13 @@
+{
+  "deno.enable": true,
+  "deno.lint": true,
+  "deno.unstable": true,
+  "deno.import_intellisense_origins": {
+    "https://deno.land": true
+  },
+  "cSpell.words": ["MNTR"],
+  "yaml.schemas": {
+    "./plugins/web/schema.yaml": ["server/mon.yaml"],
+    "http://json-schema.org/draft-07/schema": ["plugins/web/schema.yaml"]
+  }
+}

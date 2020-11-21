@@ -1,0 +1,37 @@
+GET http://localhost:8000/api/status
+
+### Fetch config
+GET http://localhost:8000/api/monitors/config
+
+### Create monitor
+POST http://localhost:8000/api/monitors
+Content-Type: application/json
+
+{
+  "name": "blah",
+  "plugin": "web",
+  "enabled": true,
+  "frequency": 11,
+  "runsOn": ["dave"],
+  "params": ""
+}
+
+### Delete monitor
+DELETE http://localhost:8000/api/monitors/web/fooqq2s
+
+### Get all monitors
+GET http://localhost:8000/api/monitors
+
+### Get a monitor
+GET http://localhost:8000/api/monitors/web/blah
+
+### Update monitor
+PUT http://localhost:8000/api/monitors/web/blah
+Content-Type: application/json
+
+{
+  "enabled": true,
+  "frequency": 77,
+  "runsOn": [],
+  "params": "wwww"
+}

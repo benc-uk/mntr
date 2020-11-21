@@ -1,0 +1,21 @@
+$schema: http://json-schema.org/draft-07/schema#
+type: object
+required:
+  - 'url'
+additionalProperties: false
+properties:
+  url:
+    title: The URL to request
+    type: string
+    format: url
+  statuses:
+    title: List of HTTP status codes considered successfu
+    type: integer
+    minimum: 100
+    maximum: 599
+  method:
+    title: The HTTP method to use
+    type: string
+    enum: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD']
+  expect:
+    type: string

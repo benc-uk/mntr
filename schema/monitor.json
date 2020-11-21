@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "title": "Monitor",
+  "description": "A monitor definition",
+  "required": ["name", "plugin", "enabled", "frequency", "runsOn", "params"],
+  "properties": {
+    "name": {
+      "$id": "#/properties/name",
+      "type": "string"
+    },
+    "plugin": {
+      "$id": "#/properties/plugin",
+      "type": "string"
+    },
+    "enabled": {
+      "$id": "#/properties/enabled",
+      "type": "boolean"
+    },
+    "frequency": {
+      "$id": "#/properties/frequency",
+      "type": "integer",
+      "minimum": 1
+    },
+    "runsOn": {
+      "$id": "#/properties/runsOn",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "params": {
+      "$id": "#/properties/params",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
