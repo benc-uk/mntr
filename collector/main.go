@@ -78,7 +78,6 @@ func main() {
 	if config.influxDBBucket = os.Getenv("MNTR_INFLUXDB_BUCKET"); config.influxDBBucket == "" {
 		config.influxDBBucket = "mntr"
 	}
-	log.Printf("%+v", config)
 
 	// Find hostname
 	collectorName, _ = os.Hostname()
@@ -151,7 +150,8 @@ func monitorRunner(ctx context.Context, runFunc plugin.Symbol, monBase types.Mon
 			for name, val := range result.Metrics {
 				log.Printf("   - %s=%f", name, val)
 			}
-			result.AddFloat("status", float64(result.Status))
+			// Special metric all monitors will output - to hold monitor status
+			result.AddFloat("_status", float64(result.Status))
 
 			// Create and send data point to InfuxDB
 			point := influxdb2.NewPoint(
@@ -209,6 +209,11 @@ func loadMonitors(serverEndpoint string) {
 
 		// Parse each one as a separate monitor configuration
 		for _, monYamlDoc := range monDocs {
+			// Skip mallformed docs
+			if len(monYamlDoc) == 0 {
+				continue
+			}
+
 			// STEP 1 - YAML parse generic/shared top level fields
 			base := types.Monitor{
 				Enabled: true,

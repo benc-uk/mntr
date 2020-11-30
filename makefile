@@ -11,6 +11,7 @@ SERVER_DIR = ./server
 PLUGINS_DIR = ./plugins
 COLLECTOR_DIR = ./collector
 FRONTEND_DIR = ./frontend
+INFLUX_DIR = ./influxdb
 PLUGINS = web ping
 
 # Most likely want to override these when calling `make docker`
@@ -109,3 +110,11 @@ clean :
 	-rm $(COLLECTOR_DIR)/collector
 	-rm -rf $(SERVER_DIR)/plugins
 	-rm -rf $(COLLECTOR_DIR)/plugins
+
+################################################################################
+# Cleanup DB
+################################################################################
+.PHONY : cleandb
+cleandb :
+	-rm -rf $(SERVER_DIR)/data
+	-rm -rf $(INFLUX_DIR)/data

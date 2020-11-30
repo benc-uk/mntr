@@ -9,6 +9,7 @@ Consider this code base extremely volatile and in constant state of flux until a
 Components:
 
 - Collector: Runs monitors on a schedule and sends results to server. Written in Go
-- Plugins: Monitor 'task runners' loaded by the collector, such as `plugins/web` for HTTP and web content monitoring. Also written in Go
-- Server: Backend API server and data store. Written in Deno with TypeScript
-- Frontend: Web UI for reporting and viewing data. Written in Vue.js
+- Plugins: Monitor 'task runners' loaded by the collector, such as `plugins/web` for HTTP and web content monitoring. Written in Go
+- Server: Backend API server and config data store. Written in Deno with TypeScript
+- InfluxDB: Data store for metrics
+- Frontend: Web UI for configuration, reporting and viewing data. Written in Vue.js

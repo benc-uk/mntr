@@ -8,12 +8,12 @@ POST http://localhost:8000/api/monitors
 Content-Type: application/json
 
 {
-  "name": "blah",
+  "name": "blah test check",
   "plugin": "web",
   "enabled": true,
   "frequency": 11,
-  "runsOn": ["dave"],
-  "params": ""
+  "runsOn": [],
+  "params": "url: http://example.net"
 }
 
 ### Delete monitor
@@ -26,12 +26,20 @@ GET http://localhost:8000/api/monitors
 GET http://localhost:8000/api/monitors/web/blah
 
 ### Update monitor
-PUT http://localhost:8000/api/monitors/web/blah
+PUT http://localhost:8000/api/monitors/web/blah test check
 Content-Type: application/json
 
 {
   "enabled": true,
-  "frequency": 77,
+  "frequency": 11,
   "runsOn": [],
-  "params": "wwww"
+  "params": "url: http://example.net"
 }
+
+# =================================================================
+
+### List all plugins
+GET http://localhost:8000/api/plugins/
+
+### Get a plugin
+GET http://localhost:8000/api/plugins/web
