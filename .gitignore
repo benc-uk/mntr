@@ -1,3 +1,5 @@
 .env
 influxdb/**
 !influxdb/install.sh
+!influxdb/run.sh
+!influxdb/config.sh

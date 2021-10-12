@@ -1,8 +1,4 @@
-import {
-  Application,
-  Router,
-  RouterContext
-} from 'https://deno.land/x/oak@v6.3.2/mod.ts'
+import { Application, Router, RouterContext } from 'https://deno.land/x/oak@v6.3.2/mod.ts'
 import { sendData } from '../core/api-helper.ts'
 
 const RES = 'status'
